@@ -613,6 +613,14 @@ class OrderController extends Controller
             ->take($perPage)
             ->get();
 
+        foreach ($completedOrders as $order) {
+            $order->items = DB::table('order_items')
+                ->join('products', 'order_items.product_id', '=', 'products.id')
+                ->select('order_items.*', 'products.name as product_name')
+                ->where('order_items.order_id', $order->id)
+                ->get();
+        }
+
         $totalPages = ceil($totalCompleted / $perPage);
 
         // Totales del período
