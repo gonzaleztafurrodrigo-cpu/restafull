@@ -172,7 +172,7 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4">
-                                <a href="http://{{ $tenant->domain }}:8000" target="_blank"
+                                <a href="http://{{ $tenant->domain }}" target="_blank"
                                     class="text-blue-500 hover:underline text-sm">{{ $tenant->domain }}</a>
                             </td>
                             <td class="px-6 py-4 text-gray-500">{{ $tenant->email }}</td>
